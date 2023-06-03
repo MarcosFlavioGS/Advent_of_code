@@ -7,7 +7,9 @@ fn main() {
         "This is my repository for solved and solving\n
         advent of code puzzles."
     );
-    println!("Day 1\n*--------------------*");
+    println!(
+        "Day 1\n*--------------------*"
+    );
     println!("Part 1:");
     fd_high_cal_elf();
     println!("Part 2:");
