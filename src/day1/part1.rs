@@ -66,6 +66,6 @@ pub fn fd_high_cal_elf() {
     for cal in calorie_vec {
         elfs.push(Elf::Calories(cal));
     }
-    println!("{}", elfs[0].sum()); // Exemple of how to get a sum of an elf's calories
+    //println!("{}", elfs[0].sum()); // Exemple of how to get a sum of an elf's calories
     println!("{}", elfs.iter().map(|x| x.sum()).max().unwrap());
 }
