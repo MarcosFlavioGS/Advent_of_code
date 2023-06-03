@@ -1,24 +1,22 @@
 use std::fs::File;
 use std::io::{BufRead, BufReader};
+use crate::day1::Elf;
 
-enum Elf {
-    Calories(Vec<u32>),
-}
+pub fn fd_high_cal_elf() {
+    let mut elfs: Vec<Elf>;
+    let     calorie_vec: Vec<Vec<u32>>;
 
-impl Elf {
-    fn sum(&self) -> u32 {
-        match self {
-            Elf::Calories(calories) => {
-                let mut sum: u32;
-
-                sum = 0;
-                for cal in calories {
-                    sum += cal;
-                }
-                sum
-            }
-        }
+    elfs = Vec::new();
+    if let Ok(vec) = calories_vectorize("inputs/day1.txt") {
+        calorie_vec = vec;
+    } else {
+        panic!("Failed to read from file.");
     }
+    for cal in calorie_vec {
+        elfs.push(Elf::Calories(cal));
+    }
+    //println!("{}", elfs[0].sum()); // Exemple of how to get a sum of an elf's calories
+    println!("{}", elfs.iter().map(|x| x.sum()).max().unwrap());
 }
 
 fn calories_vectorize(file_path: &str) -> Result<Vec<Vec<u32>>, std::io::Error> {
@@ -51,21 +49,4 @@ fn calories_vectorize(file_path: &str) -> Result<Vec<Vec<u32>>, std::io::Error> 
         result.push(line_vector);
     }
     Ok(result)
-}
-
-pub fn fd_high_cal_elf() {
-    let mut elfs: Vec<Elf>;
-    let     calorie_vec: Vec<Vec<u32>>;
-
-    elfs = Vec::new();
-    if let Ok(vec) = calories_vectorize("inputs/day1.txt") {
-        calorie_vec = vec;
-    } else {
-        panic!("Failed to read from file.");
-    }
-    for cal in calorie_vec {
-        elfs.push(Elf::Calories(cal));
-    }
-    //println!("{}", elfs[0].sum()); // Exemple of how to get a sum of an elf's calories
-    println!("{}", elfs.iter().map(|x| x.sum()).max().unwrap());
 }
