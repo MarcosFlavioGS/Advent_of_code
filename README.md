@@ -6,3 +6,5 @@ This is my repo for solved and currently solving advent of code puzzles using Ru
 
 # Index
  [Day1](https://github.com/MarcosFlavioGS/Advent_of_code/tree/master/src/day1)
+
+ [Day2](https://github.com/MarcosFlavioGS/Advent_of_code/tree/master/src/day2)
