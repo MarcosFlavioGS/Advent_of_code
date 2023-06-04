@@ -2,7 +2,7 @@ use std::fs::File;
 use std::io::{BufRead, BufReader};
 use crate::day1::Elf;
 
-pub fn fd_high_cal_elf() {
+pub fn fd_high_cal_elf() -> u32 {
     let mut elfs: Vec<Elf>;
     let     calorie_vec: Vec<Vec<u32>>;
 
@@ -16,7 +16,7 @@ pub fn fd_high_cal_elf() {
         elfs.push(Elf::Calories(elf));
     }
     //println!("{}", elfs[0].sum()); // Exemple of how to get a sum of an elf's calories
-    println!("Answer: {}", elfs.iter().map(|x| x.sum()).max().unwrap());
+    elfs.iter().map(|x| x.sum()).max().unwrap()
 }
 
 fn calories_vectorize(file_path: &str) -> Result<Vec<Vec<u32>>, std::io::Error> {

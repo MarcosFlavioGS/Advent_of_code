@@ -11,7 +11,7 @@ fn main() {
         "Day 1\n*--------------------*"
     );
     println!("Part 1:");
-    fd_high_cal_elf();
+    println!("Answer: {}", fd_high_cal_elf());
     println!("Part 2:");
-    fd_top_three();
+    println!("Answer: {}", fd_top_three());
 }

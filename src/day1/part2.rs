@@ -1,3 +1,3 @@
-pub fn fd_top_three() {
-    println!("TODO: Part two");
+pub fn fd_top_three() -> u32 {
+    42
 }
