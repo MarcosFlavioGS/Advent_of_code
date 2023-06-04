@@ -29,19 +29,18 @@ fn calories_vectorize(file_path: &str) -> Result<Vec<Vec<u32>>, std::io::Error> 
     line_vector = Vec::new();
     for line in reader.lines() {
         let line = line.expect("Failed to read line");
-
-        if line.is_empty() {
-            if !line_vector.is_empty() {
+        match line.is_empty() {
+            true => {
                 result.push(line_vector);
                 line_vector = Vec::new();
+            },
+            false => {
+                let number:u32 = line
+                    .trim()
+                    .parse()
+                    .expect("failed to parse number");
+                line_vector.push(number);
             }
-        } else {
-            let number: u32 = line
-                .trim()
-                .parse()
-                .expect("Failed to parse number");
-
-            line_vector.push(number);
         }
     }
 
