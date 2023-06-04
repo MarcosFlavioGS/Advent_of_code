@@ -12,8 +12,8 @@ pub fn fd_high_cal_elf() {
     } else {
         panic!("Failed to read from file.");
     }
-    for cal in calorie_vec {
-        elfs.push(Elf::Calories(cal));
+    for elf in calorie_vec {
+        elfs.push(Elf::Calories(elf));
     }
     //println!("{}", elfs[0].sum()); // Exemple of how to get a sum of an elf's calories
     println!("Answer: {}", elfs.iter().map(|x| x.sum()).max().unwrap());
