@@ -16,8 +16,12 @@ pub fn fd_top_three() -> u32 {
         elfs.push(Elf::Calories(cal));
     }
     elfs.sort_by(|a, b| b.sum().cmp(&a.sum()));
-    println!("{}", elfs[0].sum()); // Checking to see if the first position is the biggest.
-    elfs[0].sum() + elfs[1].sum() + elfs[3].sum()
+    /*
+    for elf in &elfs {
+        println!("{}", elf.sum()); // Printing sorted vec.
+    }
+    */
+    elfs[0].sum() + elfs[1].sum() + elfs[2].sum()
 }
 
 fn calories_vectorize(file_path: &str) -> Result<Vec<Vec<u32>>, std::io::Error> {
