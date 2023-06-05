@@ -3,13 +3,22 @@ use std::io::{BufRead, BufReader};
 
 pub fn get_total_score() -> u32 {
     let mut rounds: Vec<Vec<String>>;
+    let mut scores: Vec<u32>;
+    let mut result: u32;
 
     rounds = Vec::new();
     if let Ok(vec) = get_rounds("inputs/day2.txt") {
         rounds = vec;
     }
-    println!("{}", rounds[0][0]);
-    42
+    scores = Vec::new();
+    for round in rounds {
+        scores.push(round_score(round));
+    }
+    result = 0;
+    for score in scores {
+        result += score;
+    }
+    result
 }
 
 fn get_rounds(file_path: &str) -> Result<Vec<Vec<String>>, std::io::Error> {
@@ -39,4 +48,22 @@ fn get_rounds(file_path: &str) -> Result<Vec<Vec<String>>, std::io::Error> {
         result.push(line_vector);
     }
     Ok(result)
+}
+
+fn round_score(round: Vec<String>) -> u32 {
+    let mut score: u32;
+
+    score = 0;
+    for line in round {
+        let mut chars = line.chars().filter(|&c| c != ' ');
+        let first = chars.next().unwrap();
+        let second = chars.next().unwrap();
+        let play = (first, second);
+        score = analyse(play);
+    }
+    score
+}
+
+fn analyse(play: (char, char)) -> u32 {
+    42
 }
