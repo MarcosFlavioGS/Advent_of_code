@@ -20,11 +20,13 @@ pub fn fd_high_cal_elf() -> u32 {
 }
 
 fn calories_vectorize(file_path: &str) -> Result<Vec<Vec<u32>>, std::io::Error> {
-    let     file = File::open(file_path)?;
-    let     reader = BufReader::new(file);
+    let     file: File;
+    let     reader: BufReader<File>;
     let mut result: Vec<Vec<u32>>;
     let mut line_vector: Vec<u32>;
 
+    file = File::open(file_path)?;
+    reader = BufReader::new(file);
     result = Vec::new();
     line_vector = Vec::new();
     for line in reader.lines() {
