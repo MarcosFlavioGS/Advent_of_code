@@ -20,5 +20,6 @@ fn main() {
     println!(
         "Day 2\n*--------------------*"
     );
+    println!("Part 1:");
     println!("Answer: {}", get_total_score());
 }

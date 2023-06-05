@@ -51,19 +51,57 @@ fn get_rounds(file_path: &str) -> Result<Vec<Vec<String>>, std::io::Error> {
 }
 
 fn round_score(round: Vec<String>) -> u32 {
-    let mut score: u32;
+    let mut score: u32 = 0;
 
-    score = 0;
     for line in round {
         let mut chars = line.chars().filter(|&c| c != ' ');
         let first = chars.next().unwrap();
         let second = chars.next().unwrap();
         let play = (first, second);
-        score = analyse(play);
+        score += analyse(play);
     }
     score
 }
 
 fn analyse(play: (char, char)) -> u32 {
-    42
+    let mut result = check_victory(play.0, play.1);
+    match play.1 {
+        'X' => result += 1,
+        'Y' => result += 2,
+        'Z' => result += 3,
+        _ => println!("Do Nothing"),
+    }
+    result
+}
+
+fn check_victory(a: char, b: char) -> u32 {
+    let mut result: u32 = 0;
+    match a {
+       'A' => {
+           match b {
+               'X' => result = 3,
+               'Y' => result = 6,
+               'Z' => result = 0,
+               _ => println!("Nothing special"),
+           }
+        },
+        'B' => {
+            match b {
+                'X' => result = 0,
+                'Y' => result = 3,
+                'Z' => result = 6,
+                _ => println!("Nothing special"),
+            }
+        },
+        'C' => {
+            match b {
+                'X' => result = 6,
+                'Y' => result = 0,
+                'Z' => result = 3,
+                _ => println!("Nothing special"),
+            }
+        },
+        _ => println!("Nothing special"),
+    }
+    result
 }
