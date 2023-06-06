@@ -63,7 +63,35 @@ fn update_round(round: &mut Vec<String>) {
 }
 
 fn make_decision(a: char, b: char) -> &'static str {
-    "X"
+    let result: &str;
+    match b {
+        'X' => {
+            match a {
+                'A' => result = "Z",
+                'B' => result = "X",
+                'C' => result = "Y",
+                _ => result = "NOT DEFINED"
+            }
+        },
+        'Y' => {
+            match a {
+                'A' => result = "X",
+                'B' => result = "Y",
+                'C' => result = "Z",
+                _ => result = "NOT DEFINED"
+            }
+        },
+        'Z' => {
+            match a {
+                'A' => result = "Y",
+                'B' => result = "Z",
+                'C' => result = "X",
+                _ => result = "NOT DEFINED"
+            }
+        },
+        _ => result = "NOT DEFINED"
+    }
+    result
 }
 
 fn round_score(round: Vec<String>) -> u32 {
@@ -85,20 +113,20 @@ fn analyse(play: (char, char)) -> u32 {
         'X' => result += 1,
         'Y' => result += 2,
         'Z' => result += 3,
-        _ => println!("Do Nothing"),
+        _ => panic!("Do Nothing"),
     }
     result
 }
 
 fn check_victory(a: char, b: char) -> u32 {
-    let mut result: u32 = 0;
+    let result: u32;
     match a {
        'A' => {
            match b {
                'X' => result = 3,
                'Y' => result = 6,
                'Z' => result = 0,
-               _ => println!("Nothing special"),
+               _ => panic!("Nothing special"),
            }
         },
         'B' => {
@@ -106,7 +134,7 @@ fn check_victory(a: char, b: char) -> u32 {
                 'X' => result = 0,
                 'Y' => result = 3,
                 'Z' => result = 6,
-                _ => println!("Nothing special"),
+                _ => panic!("Nothing special"),
             }
         },
         'C' => {
@@ -114,10 +142,10 @@ fn check_victory(a: char, b: char) -> u32 {
                 'X' => result = 6,
                 'Y' => result = 0,
                 'Z' => result = 3,
-                _ => println!("Nothing special"),
+                _ => panic!("Nothing special"),
             }
         },
-        _ => println!("Nothing special"),
+        _ => panic!("Nothing special"),
     }
     result
 }
