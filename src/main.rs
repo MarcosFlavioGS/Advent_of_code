@@ -4,6 +4,7 @@ mod day2;
 use day1::part1::fd_high_cal_elf;
 use day1::part2::fd_top_three;
 use day2::part1::get_total_score;
+use day2::part2::get_true_score;
 
 fn main() {
     println!(
@@ -22,4 +23,6 @@ fn main() {
     );
     println!("Part 1:");
     println!("Answer: {}", get_total_score());
+    println!("Part 2:");
+    println!("Answer: {}", get_true_score());
 }
