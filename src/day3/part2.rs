@@ -11,7 +11,9 @@ pub fn fd_common_type() -> u32 {
     if let Ok(vec) = get_input("inputs/day3.txt") {
         input = vec;
     }
+    groups = Vec::new();
     init_groups(&mut groups, input);
+    priorities = Vec::new();
     for group in groups {
         priorities.push(group.priority());
     }
@@ -33,6 +35,18 @@ fn get_input(path: &str) -> Result<Vec<String>, std::io::Error> {
     Ok(result)
 }
 
-fn init_groups(rucksacks: &mut Vec<Group>, input: Vec<String>) {
-    pass
+fn init_groups(groups: &mut Vec<Group>, input: Vec<String>) {
+    let mut vec: Vec<String>;
+
+    vec = Vec::new();
+    for line in input {
+        if vec.len() == 3 {
+            groups.push(Group::Rucksack(vec));
+            vec = Vec::new();
+            vec.push(line);
+        } else {
+            vec.push(line);
+        }
+    }
+    groups.push(Group::Rucksack(vec));
 }
