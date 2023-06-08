@@ -9,6 +9,7 @@ use day2::part1::get_total_score;
 use day2::part2::get_true_score;
 //-------------------------------
 use day3::part1::fd_item_type;
+use day3::part2::fd_common_type;
 
 fn main() {
     println!(
@@ -34,4 +35,6 @@ fn main() {
     );
     println!("Part 1:");
     println!("Answer: {}", fd_item_type());
+    println!("Part 2:");
+    println!("Answer: {}", fd_common_type());
 }
