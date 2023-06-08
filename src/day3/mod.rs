@@ -14,7 +14,7 @@ impl Group {
         let result: u32;
         match self {
             Group::Rucksack(rucksack) => {
-                let mut c: char = 'C';
+                let mut c: char = 'A';
                 let     alphabet = "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ";
                 for char in alphabet.chars() {
                     let is_present0 = rucksack[0].contains(char);
