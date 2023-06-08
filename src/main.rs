@@ -1,10 +1,14 @@
 mod day1;
 mod day2;
+mod day3;
 
 use day1::part1::fd_high_cal_elf;
 use day1::part2::fd_top_three;
+//-------------------------------
 use day2::part1::get_total_score;
 use day2::part2::get_true_score;
+//-------------------------------
+use day3::part1::fd_item_type;
 
 fn main() {
     println!(
@@ -25,4 +29,9 @@ fn main() {
     println!("Answer: {}", get_total_score());
     println!("Part 2:");
     println!("Answer: {}", get_true_score());
+    println!(
+        "Day 3\n*--------------------*"
+    );
+    println!("Part 1:");
+    println!("Answer: {}", fd_item_type());
 }
