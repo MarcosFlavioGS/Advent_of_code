@@ -4,15 +4,15 @@ use crate::day3::Group;
 
 pub fn fd_common_type() -> u32 {
     let mut input: Vec<String>;
-    let mut rucksacks: Vec<Group>;
+    let mut groups: Vec<Group>;
     let mut priorities: Vec<u32>;
 
     input = Vec::new();
     if let Ok(vec) = get_input("inputs/day3.txt") {
         input = vec;
     }
-    init_vec(&mut rucksacks, input);
-    for group in rucksacks {
+    init_groups(&mut groups, input);
+    for group in groups {
         priorities.push(group.priority());
     }
     priorities.iter().sum()
@@ -33,6 +33,6 @@ fn get_input(path: &str) -> Result<Vec<String>, std::io::Error> {
     Ok(result)
 }
 
-fn init_vec(rucksacks: &mut Vec<Group>, input: Vec<String>) {
+fn init_groups(rucksacks: &mut Vec<Group>, input: Vec<String>) {
     pass
 }
