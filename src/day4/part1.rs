@@ -2,16 +2,12 @@ use std::fs::File;
 use std::io::{BufRead, BufReader};
 
 pub fn fd_pairs() -> u32 {
-    let mut input: Vec<(String, String)>;
+    let mut input: Vec<(String, String)> = Vec::new();
 
-    input = Vec::new();
     if let Ok(result) = get_input("inputs/day4.txt") {
         input = result;
     }
-    for tup in input {
-        println!("{}, {}", tup.0, tup.1);
-    }
-    42
+    input.iter().filter(|x| check_contain(x)).count() as u32
 }
 
 fn get_input(path: &str) -> Result<Vec<(String, String)>, std::io::Error> {
@@ -28,4 +24,22 @@ fn get_input(path: &str) -> Result<Vec<(String, String)>, std::io::Error> {
         result.push((parts[0].to_string(), parts[1].to_string()));
     }
     Ok(result)
+}
+
+fn check_contain(tup: &(String, String)) -> bool {
+    let asignment1: Vec<&str>;
+    let asignment2: Vec<&str>;
+    let range1: (u32, u32);
+    let range2: (u32, u32);
+
+    asignment1 = tup.0.split('-').collect();
+    asignment2 = tup.1.split('-').collect();
+    range1 = (asignment1[0].parse().expect("Fail"), asignment1[1].parse().expect("Fail"));
+    range2 = (asignment2[0].parse().expect("Fail"), asignment2[1].parse().expect("Fail"));
+    if range1.0 <= range2.0 && range1.1 >= range2.1 {
+        return true;
+    } else if range2.0 <= range1.0 && range2.1 >= range1.1 {
+        return true;
+    }
+    false
 }
