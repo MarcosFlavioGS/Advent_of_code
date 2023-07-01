@@ -1,7 +1,7 @@
 use std::fs::File;
 use std::io::{BufRead, BufReader};
 
-pub fn fd_pairs() -> u32 {
+pub fn fd_complete_overlap() -> u32 {
     let mut input: Vec<(String, String)> = Vec::new();
 
     if let Ok(result) = get_input("inputs/day4.txt") {

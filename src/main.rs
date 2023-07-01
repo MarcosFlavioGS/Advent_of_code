@@ -12,8 +12,9 @@ use day2::part2::get_true_score;
 use day3::part1::fd_item_type;
 use day3::part2::fd_common_type;
 //-------------------------------
-use day4::part1::fd_pairs;
-//use day4::part2::pass;
+use day4::part1::fd_complete_overlap;
+use day4::part2::fd_any_overlap;
+
 fn main() {
     println!(
         "This is my repository for solved and solving
@@ -44,5 +45,7 @@ fn main() {
         "Day 4\n*--------------------*"
     );
     println!("Part 1:");
-    println!("Asnwer: {}", fd_pairs());
+    println!("Asnwer: {}", fd_complete_overlap());
+    println!("Part 2:");
+    println!("Asnwer: {}", fd_any_overlap());
 }
