@@ -10,3 +10,5 @@ This is my repo for solved and currently solving advent of code puzzles using Ru
  [Day2](https://github.com/MarcosFlavioGS/Advent_of_code/tree/master/src/day2)
 
  [Day3](https://github.com/MarcosFlavioGS/Advent_of_code/tree/master/src/day3)
+
+ [Day4](https://github.com/MarcosFlavioGS/Advent_of_code/tree/master/src/day4)
