@@ -1,6 +1,7 @@
 mod day1;
 mod day2;
 mod day3;
+mod day4;
 
 use day1::part1::fd_high_cal_elf;
 use day1::part2::fd_top_three;
@@ -10,10 +11,12 @@ use day2::part2::get_true_score;
 //-------------------------------
 use day3::part1::fd_item_type;
 use day3::part2::fd_common_type;
-
+//-------------------------------
+use day4::part1::fd_pairs;
+//use day4::part2::pass;
 fn main() {
     println!(
-        "This is my repository for solved and solving\n
+        "This is my repository for solved and solving
         advent of code puzzles."
     );
     println!(
@@ -37,4 +40,9 @@ fn main() {
     println!("Answer: {}", fd_item_type());
     println!("Part 2:");
     println!("Answer: {}", fd_common_type());
+    println!(
+        "Day 4\n*--------------------*"
+    );
+    println!("Part 1:");
+    println!("Asnwer: {}", fd_pairs());
 }
