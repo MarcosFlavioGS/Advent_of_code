@@ -2,6 +2,7 @@ mod day1;
 mod day2;
 mod day3;
 mod day4;
+mod day5;
 
 use day1::part1::fd_high_cal_elf;
 use day1::part2::fd_top_three;
@@ -14,6 +15,9 @@ use day3::part2::fd_common_type;
 //-------------------------------
 use day4::part1::fd_complete_overlap;
 use day4::part2::fd_any_overlap;
+//-------------------------------
+use day5::part1::fd_top_crates;
+//use day4::part2::fd_any_overlap;
 
 fn main() {
     println!(
@@ -48,4 +52,9 @@ fn main() {
     println!("Asnwer: {}", fd_complete_overlap());
     println!("Part 2:");
     println!("Asnwer: {}", fd_any_overlap());
+    println!(
+        "Day 5\n*--------------------*"
+    );
+    println!("Part 1:");
+    println!("Answer: {:?}", fd_top_crates());
 }
