@@ -12,7 +12,7 @@ impl Group {
         match self {
             Group::Rucksack(rucksack) => {
                 let mut c: char = 'A';
-                let     alphabet = "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ";
+                let alphabet = "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ";
                 for char in alphabet.chars() {
                     let is_present0 = rucksack[0].contains(char);
                     let is_present1 = rucksack[1].contains(char);

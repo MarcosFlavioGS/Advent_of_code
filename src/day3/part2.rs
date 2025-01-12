@@ -1,6 +1,6 @@
+use crate::day3::Group;
 use std::fs::File;
 use std::io::{BufRead, BufReader};
-use crate::day3::Group;
 
 pub fn fd_common_type() -> u32 {
     let mut input: Vec<String>;
@@ -21,8 +21,8 @@ pub fn fd_common_type() -> u32 {
 }
 
 fn get_input(path: &str) -> Result<Vec<String>, std::io::Error> {
-    let     file: File;
-    let     reader: BufReader<File>;
+    let file: File;
+    let reader: BufReader<File>;
     let mut result: Vec<String>;
 
     file = File::open(path)?;

@@ -23,37 +23,27 @@ fn main() {
         "This is my repository for solved and solving
         advent of code puzzles."
     );
-    println!(
-        "Day 1\n*--------------------*"
-    );
+    println!("Day 1\n*--------------------*");
     println!("Part 1:");
     println!("Answer: {}", fd_high_cal_elf());
     println!("Part 2:");
     println!("Answer: {}", fd_top_three());
-    println!(
-        "Day 2\n*--------------------*"
-    );
+    println!("Day 2\n*--------------------*");
     println!("Part 1:");
     println!("Answer: {}", get_total_score());
     println!("Part 2:");
     println!("Answer: {}", get_true_score());
-    println!(
-        "Day 3\n*--------------------*"
-    );
+    println!("Day 3\n*--------------------*");
     println!("Part 1:");
     println!("Answer: {}", fd_item_type());
     println!("Part 2:");
     println!("Answer: {}", fd_common_type());
-    println!(
-        "Day 4\n*--------------------*"
-    );
+    println!("Day 4\n*--------------------*");
     println!("Part 1:");
     println!("Asnwer: {}", fd_complete_overlap());
     println!("Part 2:");
     println!("Asnwer: {}", fd_any_overlap());
-    println!(
-        "Day 5\n*--------------------*"
-    );
+    println!("Day 5\n*--------------------*");
     println!("Part 1:");
     println!("Answer: {:?}", fd_top_crates());
 }

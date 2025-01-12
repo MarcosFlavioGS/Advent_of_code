@@ -14,8 +14,8 @@ pub fn fd_item_type() -> u32 {
 }
 
 fn get_input(path: &str) -> Result<Vec<(String, String)>, std::io::Error> {
-    let     file: File;
-    let     reader: BufReader<File>;
+    let file: File;
+    let reader: BufReader<File>;
     let mut result: Vec<(String, String)>;
 
     file = File::open(path)?;
@@ -23,7 +23,10 @@ fn get_input(path: &str) -> Result<Vec<(String, String)>, std::io::Error> {
     result = Vec::new();
     for line in reader.lines() {
         let line = line.expect("Failed to read line");
-        result.push((String::from(&line[..(line.len() / 2)]), String::from(&line[(line.len() / 2)..])));
+        result.push((
+            String::from(&line[..(line.len() / 2)]),
+            String::from(&line[(line.len() / 2)..]),
+        ));
     }
     Ok(result)
 }

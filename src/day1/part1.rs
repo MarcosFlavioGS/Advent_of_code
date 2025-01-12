@@ -1,10 +1,10 @@
+use crate::day1::Elf;
 use std::fs::File;
 use std::io::{BufRead, BufReader};
-use crate::day1::Elf;
 
 pub fn fd_high_cal_elf() -> u32 {
     let mut elfs: Vec<Elf>;
-    let     calorie_vec: Vec<Vec<u32>>;
+    let calorie_vec: Vec<Vec<u32>>;
 
     elfs = Vec::new();
     if let Ok(vec) = calories_vectorize("inputs/day1.txt") {
@@ -20,8 +20,8 @@ pub fn fd_high_cal_elf() -> u32 {
 }
 
 fn calories_vectorize(file_path: &str) -> Result<Vec<Vec<u32>>, std::io::Error> {
-    let     file: File;
-    let     reader: BufReader<File>;
+    let file: File;
+    let reader: BufReader<File>;
     let mut result: Vec<Vec<u32>>;
     let mut line_vector: Vec<u32>;
 
@@ -35,12 +35,9 @@ fn calories_vectorize(file_path: &str) -> Result<Vec<Vec<u32>>, std::io::Error> 
             true => {
                 result.push(line_vector);
                 line_vector = Vec::new();
-            },
+            }
             false => {
-                let number:u32 = line
-                    .trim()
-                    .parse()
-                    .expect("failed to parse number");
+                let number: u32 = line.trim().parse().expect("failed to parse number");
                 line_vector.push(number);
             }
         }

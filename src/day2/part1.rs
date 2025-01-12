@@ -22,8 +22,8 @@ pub fn get_total_score() -> u32 {
 }
 
 fn get_rounds(file_path: &str) -> Result<Vec<Vec<String>>, std::io::Error> {
-    let     file: File;
-    let     reader: BufReader<File>;
+    let file: File;
+    let reader: BufReader<File>;
     let mut result: Vec<Vec<String>>;
     let mut line_vector: Vec<String>;
 
@@ -37,7 +37,7 @@ fn get_rounds(file_path: &str) -> Result<Vec<Vec<String>>, std::io::Error> {
             true => {
                 result.push(line_vector);
                 line_vector = Vec::new();
-            },
+            }
             false => {
                 let play: String = String::from(line);
                 line_vector.push(play);
@@ -77,29 +77,23 @@ fn analyse(play: (char, char)) -> u32 {
 fn check_victory(a: char, b: char) -> u32 {
     let mut result: u32 = 0;
     match a {
-       'A' => {
-           match b {
-               'X' => result = 3,
-               'Y' => result = 6,
-               'Z' => result = 0,
-               _ => println!("Nothing special"),
-           }
+        'A' => match b {
+            'X' => result = 3,
+            'Y' => result = 6,
+            'Z' => result = 0,
+            _ => println!("Nothing special"),
         },
-        'B' => {
-            match b {
-                'X' => result = 0,
-                'Y' => result = 3,
-                'Z' => result = 6,
-                _ => println!("Nothing special"),
-            }
+        'B' => match b {
+            'X' => result = 0,
+            'Y' => result = 3,
+            'Z' => result = 6,
+            _ => println!("Nothing special"),
         },
-        'C' => {
-            match b {
-                'X' => result = 6,
-                'Y' => result = 0,
-                'Z' => result = 3,
-                _ => println!("Nothing special"),
-            }
+        'C' => match b {
+            'X' => result = 6,
+            'Y' => result = 0,
+            'Z' => result = 3,
+            _ => println!("Nothing special"),
         },
         _ => println!("Nothing special"),
     }

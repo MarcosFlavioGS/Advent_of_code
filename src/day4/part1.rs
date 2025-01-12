@@ -11,8 +11,8 @@ pub fn fd_complete_overlap() -> u32 {
 }
 
 fn get_input(path: &str) -> Result<Vec<(String, String)>, std::io::Error> {
-    let     file: File;
-    let     reader: BufReader<File>;
+    let file: File;
+    let reader: BufReader<File>;
     let mut result: Vec<(String, String)>;
 
     file = File::open(path)?;
@@ -34,8 +34,14 @@ fn check_contain(tup: &(String, String)) -> bool {
 
     asignment1 = tup.0.split('-').collect();
     asignment2 = tup.1.split('-').collect();
-    range1 = (asignment1[0].parse().expect("Fail"), asignment1[1].parse().expect("Fail"));
-    range2 = (asignment2[0].parse().expect("Fail"), asignment2[1].parse().expect("Fail"));
+    range1 = (
+        asignment1[0].parse().expect("Fail"),
+        asignment1[1].parse().expect("Fail"),
+    );
+    range2 = (
+        asignment2[0].parse().expect("Fail"),
+        asignment2[1].parse().expect("Fail"),
+    );
     if range1.0 <= range2.0 && range1.1 >= range2.1 {
         return true;
     } else if range2.0 <= range1.0 && range2.1 >= range1.1 {

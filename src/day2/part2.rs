@@ -25,8 +25,8 @@ pub fn get_true_score() -> u32 {
 }
 
 fn get_rounds(file_path: &str) -> Result<Vec<Vec<String>>, std::io::Error> {
-    let     file: File;
-    let     reader: BufReader<File>;
+    let file: File;
+    let reader: BufReader<File>;
     let mut result: Vec<Vec<String>>;
     let mut line_vector: Vec<String>;
 
@@ -40,7 +40,7 @@ fn get_rounds(file_path: &str) -> Result<Vec<Vec<String>>, std::io::Error> {
             true => {
                 result.push(line_vector);
                 line_vector = Vec::new();
-            },
+            }
             false => {
                 let play: String = String::from(line);
                 line_vector.push(play);
@@ -56,8 +56,8 @@ fn get_rounds(file_path: &str) -> Result<Vec<Vec<String>>, std::io::Error> {
 fn update_round(round: &mut Vec<String>) {
     for i in 0..round.len() {
         let mut chars = round[i].chars().filter(|&c| c != ' ');
-        let     a = chars.next().unwrap();
-        let     b = chars.next().unwrap();
+        let a = chars.next().unwrap();
+        let b = chars.next().unwrap();
         round[i] = round[i].replace(b, make_decision(a, b));
     }
 }
@@ -65,31 +65,25 @@ fn update_round(round: &mut Vec<String>) {
 fn make_decision(a: char, b: char) -> &'static str {
     let result: &str;
     match b {
-        'X' => {
-            match a {
-                'A' => result = "Z",
-                'B' => result = "X",
-                'C' => result = "Y",
-                _ => result = "NOT DEFINED"
-            }
+        'X' => match a {
+            'A' => result = "Z",
+            'B' => result = "X",
+            'C' => result = "Y",
+            _ => result = "NOT DEFINED",
         },
-        'Y' => {
-            match a {
-                'A' => result = "X",
-                'B' => result = "Y",
-                'C' => result = "Z",
-                _ => result = "NOT DEFINED"
-            }
+        'Y' => match a {
+            'A' => result = "X",
+            'B' => result = "Y",
+            'C' => result = "Z",
+            _ => result = "NOT DEFINED",
         },
-        'Z' => {
-            match a {
-                'A' => result = "Y",
-                'B' => result = "Z",
-                'C' => result = "X",
-                _ => result = "NOT DEFINED"
-            }
+        'Z' => match a {
+            'A' => result = "Y",
+            'B' => result = "Z",
+            'C' => result = "X",
+            _ => result = "NOT DEFINED",
         },
-        _ => result = "NOT DEFINED"
+        _ => result = "NOT DEFINED",
     }
     result
 }
@@ -121,29 +115,23 @@ fn analyse(play: (char, char)) -> u32 {
 fn check_victory(a: char, b: char) -> u32 {
     let result: u32;
     match a {
-       'A' => {
-           match b {
-               'X' => result = 3,
-               'Y' => result = 6,
-               'Z' => result = 0,
-               _ => panic!("Nothing special"),
-           }
+        'A' => match b {
+            'X' => result = 3,
+            'Y' => result = 6,
+            'Z' => result = 0,
+            _ => panic!("Nothing special"),
         },
-        'B' => {
-            match b {
-                'X' => result = 0,
-                'Y' => result = 3,
-                'Z' => result = 6,
-                _ => panic!("Nothing special"),
-            }
+        'B' => match b {
+            'X' => result = 0,
+            'Y' => result = 3,
+            'Z' => result = 6,
+            _ => panic!("Nothing special"),
         },
-        'C' => {
-            match b {
-                'X' => result = 6,
-                'Y' => result = 0,
-                'Z' => result = 3,
-                _ => panic!("Nothing special"),
-            }
+        'C' => match b {
+            'X' => result = 6,
+            'Y' => result = 0,
+            'Z' => result = 3,
+            _ => panic!("Nothing special"),
         },
         _ => panic!("Nothing special"),
     }
